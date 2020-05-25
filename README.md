@@ -67,7 +67,7 @@ jobs:
       run: npm run build --if-present
 
      - name: Deploy to server via rsync
-     uses: actions/streembit/apps-deploy-action@@master
+     uses: actions/streembit/apps-deploy-action@master
      with:
      	RSYNC_OPTIONS: -avzr --delete --exclude node_modules --exclude '.git*'
         RSYNC_TARGET: /path/to/target/folder/on/server
