@@ -66,16 +66,16 @@ jobs:
     - name: Run build task
       run: npm run build --if-present
 
-	- name: Deploy to server via rsync
-	uses: actions/streembit/apps-deploy-action@@master
-	with:
-		RSYNC_OPTIONS: -avzr --delete --exclude node_modules --exclude '.git*'
-		RSYNC_TARGET: /path/to/target/folder/on/server
-		RSYNC_SOURCE: /src/public/
-	env:
-		SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
-		SSH_USERNAME: ${{secrets.SSH_USERNAME}}
-		SSH_HOSTNAME: ${{secrets.SSH_HOSTNAME}}
+     - name: Deploy to server via rsync
+     uses: actions/streembit/apps-deploy-action@@master
+     with:
+     	RSYNC_OPTIONS: -avzr --delete --exclude node_modules --exclude '.git*'
+	RSYNC_TARGET: /path/to/target/folder/on/server
+	RSYNC_SOURCE: /src/public/
+     env:
+	SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+	SSH_USERNAME: ${{secrets.SSH_USERNAME}}
+	SSH_HOSTNAME: ${{secrets.SSH_HOSTNAME}}
 	  
 ```
 
